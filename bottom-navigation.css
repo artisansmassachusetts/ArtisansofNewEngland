@@ -43,12 +43,25 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-.bottom-nav a > span[aria-hidden="true"] {
+.bottom-nav a > .nav-icon {
+  width: 1.35rem;
+  height: 1.35rem;
   min-height: 1.35rem;
   display: grid;
   place-items: center;
   font-size: 1.25rem;
   line-height: 1;
+}
+
+.bottom-nav .nav-icon svg {
+  display: block;
+  width: 1.15rem;
+  height: 1.15rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.65;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .bottom-nav a small {

@@ -55,9 +55,40 @@
     }
   }
 
-  // Use the circular logo as the Home item in the bottom navigation.
-  const bottomNav = document.querySelector('.bottom-nav');
-  const homeLink = bottomNav?.querySelector('a[data-page="index.html"]');
+  // Give every page the same bottom navigation and a consistent set of line icons.
+  const navigationItems = [
+    { page: 'index.html', label: 'Home' },
+    { page: 'mentoring.html', label: 'Mentoring', icon: '<circle cx="12" cy="5" r="2.5"/><path d="M9 10h6l-1 5 3 4H7l3-4-1-5Z"/><path d="M6 21h12"/>' },
+    { page: 'skills.html', label: 'Skills', icon: '<path d="m14.5 6.5 3-3 3 3-3 3"/><path d="m3.5 20.5 9.8-9.8"/><path d="m6 4 14 14"/><path d="M4 6 6 4l4 4-2 2"/><path d="m14 16 2-2 4 4-2 2"/>' },
+    { page: 'resources.html', label: 'Resources', icon: '<rect x="5" y="4" width="14" height="16" rx="1"/><path d="M8 8h8M8 12h8M8 16h8"/>' },
+    { page: 'story.html', label: 'Our story', icon: '<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/>' },
+    { page: 'contact.html', label: 'Contact', icon: '<rect x="3.5" y="5.5" width="17" height="13" rx="1"/><path d="m4.5 7 7.5 6 7.5-6"/>' },
+  ];
+  let bottomNav = document.querySelector('.bottom-nav');
+  if (!bottomNav) {
+    bottomNav = document.createElement('nav');
+    bottomNav.className = 'bottom-nav';
+    document.body.appendChild(bottomNav);
+  }
+  bottomNav.setAttribute('aria-label', 'Main navigation');
+  bottomNav.replaceChildren(...navigationItems.map(({ page, label, icon }) => {
+    const link = document.createElement('a');
+    link.href = page;
+    link.dataset.page = page;
+    if (icon) {
+      const iconWrapper = document.createElement('span');
+      iconWrapper.className = 'nav-icon';
+      iconWrapper.setAttribute('aria-hidden', 'true');
+      iconWrapper.innerHTML = `<svg viewBox="0 0 24 24" focusable="false">${icon}</svg>`;
+      link.appendChild(iconWrapper);
+    }
+    const labelNode = document.createElement('small');
+    labelNode.textContent = label;
+    link.appendChild(labelNode);
+    return link;
+  }));
+
+  const homeLink = bottomNav.querySelector('a[data-page="index.html"]');
   if (homeLink && !homeLink.querySelector('img')) {
     const logo = document.createElement('img');
     logo.src = 'LOGO.png';
@@ -74,7 +105,7 @@
   document.head.appendChild(bottomNavStyles);
 
   const pageName = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.bottom-nav a[data-page]').forEach((link) => {
+  bottomNav.querySelectorAll('a[data-page]').forEach((link) => {
     if (link.dataset.page === pageName) {
       link.setAttribute('aria-current', 'page');
     }
