@@ -112,7 +112,8 @@ body {
   .bottom-nav {
     left: 50%;
     right: auto;
-    width: min(840px, calc(100vw - 3rem));
+    width: min(1000px, calc(100vw - 3rem));
+    grid-template-columns: minmax(240px, 2fr) repeat(6, minmax(0, 1fr));
     transform: translateX(-50%);
     bottom: 1.25rem;
   }
