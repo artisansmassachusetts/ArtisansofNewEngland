@@ -34,6 +34,27 @@
     document.head.appendChild(skillsStyles);
   }
 
+  // Surface a few key resource links in the open space beside the resources hero copy.
+  const resourcesHero = document.querySelector('.page-hero-resources');
+  const resourcesList = document.querySelector('.resource-list');
+  if (resourcesHero && resourcesList) {
+    const featuredResources = Array.from(resourcesList.querySelectorAll('.resource-item')).slice(0, 3);
+    if (featuredResources.length) {
+      const resourcesPanel = document.createElement('section');
+      resourcesPanel.className = 'resources-hero-panel';
+      resourcesPanel.setAttribute('aria-labelledby', 'resources-hero-heading');
+      resourcesPanel.innerHTML = '<div class="resources-hero-heading"><p class="eyebrow">A useful place to begin</p><h2 id="resources-hero-heading">Support for your next step.</h2><p>Explore trusted organizations offering funding, business guidance, and preservation support.</p></div><div class="resources-hero-grid"></div>';
+      const resourcesGrid = resourcesPanel.querySelector('.resources-hero-grid');
+      featuredResources.forEach((resource) => resourcesGrid.appendChild(resource));
+      resourcesHero.appendChild(resourcesPanel);
+
+      const resourcesStyles = document.createElement('link');
+      resourcesStyles.rel = 'stylesheet';
+      resourcesStyles.href = 'resources-layout.css';
+      document.head.appendChild(resourcesStyles);
+    }
+  }
+
   // Use the circular logo as the Home item in the bottom navigation.
   const bottomNav = document.querySelector('.bottom-nav');
   const homeLink = bottomNav?.querySelector('a[data-page="index.html"]');
