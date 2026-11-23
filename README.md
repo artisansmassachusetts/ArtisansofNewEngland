@@ -1,6 +1,6 @@
-# Massachusetts Artisans
+# Artisans of New England
 
-A responsive, multi-page static website for a community connecting Massachusetts makers, tradespeople, and apprentices.
+A responsive, multi-page static website for a community connecting New England makers, tradespeople, and apprentices.
 
 ## Pages
 
@@ -13,7 +13,7 @@ A responsive, multi-page static website for a community connecting Massachusetts
 
 ## Run locally
 
-Open `index.html` directly, or serve this directory with any static file server, for example:
+Open `index.html` directly, or serve this directory with a static file server, for example:
 
 ```sh
 python3 -m http.server 8000
@@ -21,8 +21,6 @@ python3 -m http.server 8000
 
 Then visit `http://localhost:8000`.
 
-## Deployment notes
+## Deployment
 
-This site has no build step or runtime dependencies. Deploy the files to GitHub Pages or any static host. Fonts load from Google Fonts and photographs use Unsplash image URLs; replace them with locally hosted, appropriately licensed assets if you need fully self-hosted media. The contact form is intentionally client-side and does not transmit or store submissions; update `data-email` in `contact.html` to a monitored email address before launch, or connect a form service/backend for direct submission.
-
-The site uses semantic HTML, responsive layouts, visible keyboard focus, a skip link, reduced-motion support, and a persistent bottom navigation. Verify external resource program details and availability before publishing.
+This is a static site with no build step. GitHub Pages can publish the `main` branch from the repository root. The contact form prepares a draft in the visitor’s email app rather than storing submissions on the site.

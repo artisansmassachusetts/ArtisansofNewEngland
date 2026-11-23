@@ -2,6 +2,37 @@
 (() => {
   'use strict';
 
+  // Apply the Artisans of New England brand across every page.
+  document.title = document.title.replace(/Massachusetts Artisans/g, 'Artisans of New England');
+
+  document.querySelectorAll('meta[name="description"]').forEach((meta) => {
+    meta.content = meta.content
+      .replace(/Massachusetts Artisans/g, 'Artisans of New England')
+      .replace(/Massachusetts makers/g, 'New England makers')
+      .replace(/across Massachusetts/g, 'across New England');
+  });
+
+  document.querySelectorAll('.brand').forEach((brand) => {
+    const mark = brand.querySelector('.brand-mark');
+    const name = brand.querySelector(':scope > span:last-child');
+    if (mark) mark.textContent = 'ANE';
+    if (name) name.innerHTML = 'Artisans of<br><b>New England</b>';
+    if (brand.classList.contains('brand-footer')) {
+      brand.removeAttribute('aria-label');
+    } else {
+      brand.setAttribute('aria-label', 'Artisans of New England home');
+    }
+  });
+
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  const textNodes = [];
+  while (walker.nextNode()) textNodes.push(walker.currentNode);
+  textNodes.forEach((node) => {
+    node.textContent = node.textContent
+      .replace(/Massachusetts Artisans/g, 'Artisans of New England')
+      .replace(/Artisans Massachusetts/g, 'Artisans of New England');
+  });
+
   // Apply self-hosted repository photos and artwork across all pages.
   const imageStyles = document.createElement('link');
   imageStyles.rel = 'stylesheet';
@@ -41,7 +72,7 @@
 
       const fields = new FormData(form);
       const recipient = form.dataset.email;
-      const subject = `Massachusetts Artisans — ${fields.get('interest')}`;
+      const subject = `Artisans of New England — ${fields.get('interest')}`;
       const body = [
         `Name: ${fields.get('name')}`,
         `Email: ${fields.get('email')}`,
