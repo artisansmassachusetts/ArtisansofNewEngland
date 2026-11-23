@@ -47,6 +47,21 @@
     document.head.appendChild(involvedCardStyles);
   }
 
+  // Add the larger brand logo before Home in the bottom navigation.
+  const bottomNav = document.querySelector('.bottom-nav');
+  if (bottomNav && !bottomNav.querySelector('.bottom-nav-brand')) {
+    const logoLink = document.createElement('a');
+    logoLink.className = 'bottom-nav-brand';
+    logoLink.href = 'index.html';
+    logoLink.setAttribute('aria-label', 'Artisans of New England home');
+
+    const logo = document.createElement('img');
+    logo.src = 'LOGO.png';
+    logo.alt = '';
+    logoLink.appendChild(logo);
+    bottomNav.insertBefore(logoLink, bottomNav.firstChild);
+  }
+
   // Professional mobile bottom navigation sizing and border.
   const bottomNavStyles = document.createElement('link');
   bottomNavStyles.rel = 'stylesheet';
