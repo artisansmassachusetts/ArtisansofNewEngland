@@ -1,0 +1,99 @@
+/* Larger, bordered mobile bottom navigation. */
+@media (max-width: 800px) {
+  html {
+    scroll-padding-bottom: 7.5rem;
+  }
+
+  body {
+    padding-bottom: calc(7.5rem + env(safe-area-inset-bottom));
+  }
+
+  .bottom-nav {
+    position: fixed;
+    z-index: 1000;
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: calc(0.75rem + env(safe-area-inset-bottom));
+    height: 76px;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    align-items: center;
+    gap: 0;
+    margin: 0;
+    padding: 0.35rem 0.25rem;
+    border: 1px solid rgba(37, 44, 35, 0.28);
+    border-radius: 18px;
+    background: rgba(244, 239, 228, 0.97);
+    box-shadow: 0 10px 30px rgba(37, 44, 35, 0.18);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .bottom-nav a {
+    min-width: 44px;
+    min-height: 58px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.12rem;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    color: #667064;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .bottom-nav a > span[aria-hidden="true"] {
+    min-height: 1.35rem;
+    display: grid;
+    place-items: center;
+    font-size: 1.25rem;
+    line-height: 1;
+  }
+
+  .bottom-nav a small {
+    max-width: 100%;
+    overflow: hidden;
+    font-size: 0.68rem;
+    font-weight: 700;
+    line-height: 1.15;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .bottom-nav a[aria-current="page"] {
+    border-color: rgba(61, 81, 62, 0.22);
+    background: #e4dcc9;
+    color: #26392d;
+  }
+
+  .bottom-nav a:focus-visible {
+    outline: 3px solid #a85c3e;
+    outline-offset: 2px;
+  }
+}
+
+@media (max-width: 420px) {
+  .bottom-nav {
+    left: 0.5rem;
+    right: 0.5rem;
+  }
+
+  .bottom-nav a small {
+    font-size: 0.62rem;
+  }
+}
+
+@media (min-width: 801px) {
+  .bottom-nav {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bottom-nav,
+  .bottom-nav a {
+    transition: none;
+  }
+}

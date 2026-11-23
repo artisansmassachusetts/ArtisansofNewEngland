@@ -39,6 +39,12 @@
   imageStyles.href = 'repository-images.css';
   document.head.appendChild(imageStyles);
 
+  // Professional mobile bottom navigation sizing and border.
+  const bottomNavStyles = document.createElement('link');
+  bottomNavStyles.rel = 'stylesheet';
+  bottomNavStyles.href = 'bottom-navigation.css';
+  document.head.appendChild(bottomNavStyles);
+
   const pageName = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.bottom-nav a[data-page]').forEach((link) => {
     if (link.dataset.page === pageName) {
