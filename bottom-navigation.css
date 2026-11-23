@@ -7,7 +7,7 @@
   bottom: calc(0.75rem + env(safe-area-inset-bottom));
   height: 76px;
   display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-template-columns: minmax(160px, 1.8fr) repeat(6, minmax(0, 1fr));
   align-items: center;
   gap: 0;
   margin: 0;
@@ -73,16 +73,39 @@ body {
 }
 
 .bottom-nav .bottom-nav-brand {
-  min-height: 58px;
-  padding: 0.2rem;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 0.65rem;
+  padding: 0.2rem 0.55rem;
+  text-align: left;
 }
 
 .bottom-nav-brand img {
   display: block;
-  width: 52px;
-  height: 52px;
-  max-width: 100%;
-  object-fit: contain;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(37, 44, 35, 0.7);
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.bottom-nav .bottom-nav-wordmark {
+  display: block;
+  min-height: 0;
+  color: #252c23;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+.bottom-nav-wordmark strong {
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
 }
 
 @media (min-width: 801px) {
@@ -163,6 +186,7 @@ body {
   .bottom-nav {
     left: 0.5rem;
     right: 0.5rem;
+    grid-template-columns: 42px repeat(6, minmax(0, 1fr));
   }
 
   .bottom-nav a small {
@@ -170,12 +194,18 @@ body {
   }
 
   .bottom-nav .bottom-nav-brand {
+    justify-content: center;
     padding: 0.1rem;
   }
 
   .bottom-nav-brand img {
-    width: 40px;
-    height: 48px;
+    flex-basis: 36px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .bottom-nav .bottom-nav-wordmark {
+    display: none;
   }
 }
 
