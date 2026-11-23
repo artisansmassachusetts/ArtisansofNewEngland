@@ -1,0 +1,155 @@
+/* Compact skills cards in the open space beside the skills-page hero. */
+.page-hero-skills {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1.22fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+  min-height: min(900px, calc(100svh - 102px));
+  padding: clamp(3rem, 6vw, 6rem) var(--page-pad);
+  position: relative;
+  isolation: isolate;
+}
+
+.page-hero-skills .page-hero-photo {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.page-hero-skills .page-hero-copy,
+.skills-hero-panel {
+  min-width: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.page-hero-skills .page-hero-copy {
+  max-width: 34rem;
+}
+
+.skills-hero-panel {
+  padding: clamp(1rem, 2vw, 1.6rem);
+  border: 1px solid rgba(244, 239, 228, 0.42);
+  border-radius: 12px;
+  background: rgba(37, 44, 35, 0.48);
+  backdrop-filter: blur(5px);
+}
+
+.skills-hero-panel .section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin: 0 0 1rem;
+  color: var(--paper);
+}
+
+.skills-hero-panel .section-heading > div {
+  flex: 1 1 45%;
+}
+
+.skills-hero-panel .section-heading h2 {
+  margin: 0;
+  font-size: clamp(1.35rem, 2vw, 2rem);
+  line-height: 1.15;
+}
+
+.skills-hero-panel .section-heading > p {
+  flex: 1 1 45%;
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.skills-hero-panel .skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.skills-hero-panel .skill-card {
+  min-width: 0;
+  min-height: 0;
+  padding: 0.85rem;
+  border: 1px solid rgba(37, 44, 35, 0.14);
+  border-radius: 7px;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.skills-hero-panel .skill-symbol {
+  display: inline-block;
+  margin-bottom: 0.4rem;
+  color: var(--rust);
+  font-size: 0.68rem;
+  line-height: 1;
+}
+
+.skills-hero-panel .skill-card .eyebrow {
+  margin: 0 0 0.15rem;
+  font-size: 0.57rem;
+  line-height: 1.35;
+}
+
+.skills-hero-panel .skill-card h3 {
+  margin: 0;
+  font-size: clamp(0.9rem, 1.05vw, 1.08rem);
+  line-height: 1.2;
+}
+
+.skills-hero-panel .skill-card > p:last-child {
+  display: -webkit-box;
+  overflow: hidden;
+  margin: 0.4rem 0 0;
+  font-size: 0.68rem;
+  line-height: 1.4;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+@media (max-width: 1000px) and (min-width: 801px) {
+  .page-hero-skills {
+    grid-template-columns: minmax(250px, 0.7fr) minmax(0, 1.3fr);
+    gap: 1.5rem;
+  }
+
+  .skills-hero-panel .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 800px) {
+  .page-hero-skills {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    min-height: 0;
+    padding-top: 4rem;
+    padding-bottom: 5rem;
+  }
+
+  .page-hero-skills .page-hero-copy {
+    max-width: 40rem;
+  }
+
+  .skills-hero-panel {
+    width: 100%;
+  }
+
+  .skills-hero-panel .skills-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .skills-hero-panel .section-heading {
+    display: block;
+  }
+
+  .skills-hero-panel .section-heading > p {
+    margin-top: 0.5rem;
+  }
+
+  .skills-hero-panel .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

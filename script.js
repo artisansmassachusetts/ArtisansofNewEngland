@@ -16,6 +16,24 @@
     document.head.appendChild(involvedCardStyles);
   }
 
+  // Bring the craft cards into the open space beside the skills-page hero copy.
+  const skillsHero = document.querySelector('.page-hero-skills');
+  const skillsGrid = document.querySelector('.skills-grid');
+  const skillsSection = skillsGrid?.closest('section');
+  const skillsHeading = skillsSection?.querySelector('.section-heading');
+  if (skillsHero && skillsGrid && skillsSection && skillsHeading) {
+    const skillsPanel = document.createElement('div');
+    skillsPanel.className = 'skills-hero-panel';
+    skillsPanel.append(skillsHeading, skillsGrid);
+    skillsHero.appendChild(skillsPanel);
+    skillsSection.remove();
+
+    const skillsStyles = document.createElement('link');
+    skillsStyles.rel = 'stylesheet';
+    skillsStyles.href = 'skills-layout.css';
+    document.head.appendChild(skillsStyles);
+  }
+
   // Use the circular logo as the Home item in the bottom navigation.
   const bottomNav = document.querySelector('.bottom-nav');
   const homeLink = bottomNav?.querySelector('a[data-page="index.html"]');
