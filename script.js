@@ -47,7 +47,7 @@
     document.head.appendChild(involvedCardStyles);
   }
 
-  // Add the larger brand logo before Home in the bottom navigation.
+  // Add a header-style logo and wordmark before Home in the bottom navigation.
   const bottomNav = document.querySelector('.bottom-nav');
   if (bottomNav && !bottomNav.querySelector('.bottom-nav-brand')) {
     const logoLink = document.createElement('a');
@@ -59,6 +59,13 @@
     logo.src = 'LOGO.png';
     logo.alt = '';
     logoLink.appendChild(logo);
+
+    const wordmark = document.createElement('span');
+    wordmark.className = 'bottom-nav-wordmark';
+    wordmark.setAttribute('aria-hidden', 'true');
+    wordmark.innerHTML = 'ARTISANS OF<br><strong>NEW ENGLAND</strong>';
+    logoLink.appendChild(wordmark);
+
     bottomNav.insertBefore(logoLink, bottomNav.firstChild);
   }
 
