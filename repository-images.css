@@ -1,0 +1,59 @@
+/* Local repository artwork replacing the temporary stock-photo placeholders. */
+.hero-home .hero-image {
+  background-image: url("hero-background%20(1).png");
+  background-position: center;
+}
+
+.page-hero-mentoring .page-hero-photo,
+.image-mentoring {
+  background-image: url("bg-matching%20(1).png");
+}
+
+.page-hero-skills .page-hero-photo,
+.image-skills-banner {
+  background-image: url("bg-skills%20(1).png");
+}
+
+.page-hero-resources .page-hero-photo {
+  background-image: url("bg-preservation%20(1).png");
+}
+
+.page-hero-story .page-hero-photo {
+  background-image: url("bg-community%20(1).png");
+}
+
+.founder-photo {
+  background-image: url("founder-photo%20(1).jpg");
+}
+
+/* Use the uploaded identity artwork in the existing brand mark. */
+.brand-mark {
+  background: url("LOGO.png") center / contain no-repeat;
+  font-size: 0;
+}
+
+.brand-mark::after {
+  content: "";
+}
+
+/* The map artwork adds a regional accent to the resources note. */
+.note-panel {
+  background-image: url("Massachusetts%20(1).png");
+  background-repeat: no-repeat;
+  background-position: right 1.5rem center;
+  background-size: auto 70%;
+}
+
+@media (max-width: 800px) {
+  .note-panel {
+    background-size: auto 45%;
+    background-position: right 1rem bottom 1rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .note-panel {
+    background-size: auto 35%;
+    background-position: right 1rem bottom 1rem;
+  }
+}
