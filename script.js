@@ -49,18 +49,14 @@
 
   // Use the circular logo as the Home item in the bottom navigation.
   const bottomNav = document.querySelector('.bottom-nav');
-  if (bottomNav) {
-    const homeLink = bottomNav.querySelector('a[data-page="index.html"]');
-    const brandLink = bottomNav.querySelector('.bottom-nav-brand');
-    if (homeLink && brandLink) {
-      const logo = brandLink.querySelector('img');
-      if (logo) {
-        homeLink.replaceChildren(logo);
-        homeLink.classList.add('bottom-nav-home');
-        homeLink.setAttribute('aria-label', 'Home');
-        brandLink.remove();
-      }
-    }
+  const homeLink = bottomNav?.querySelector('a[data-page="index.html"]');
+  if (homeLink && !homeLink.querySelector('img')) {
+    const logo = document.createElement('img');
+    logo.src = 'LOGO.png';
+    logo.alt = '';
+    homeLink.replaceChildren(logo);
+    homeLink.classList.add('bottom-nav-home');
+    homeLink.setAttribute('aria-label', 'Home');
   }
 
   // Professional mobile bottom navigation sizing and border.
