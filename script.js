@@ -39,6 +39,42 @@
   imageStyles.href = 'repository-images.css';
   document.head.appendChild(imageStyles);
 
+  // Style the Google Forms cards on the home page.
+  if (document.querySelector('.get-involved .card-grid')) {
+    const involvedCardStyles = document.createElement('link');
+    involvedCardStyles.rel = 'stylesheet';
+    involvedCardStyles.href = 'involved-cards.css';
+    document.head.appendChild(involvedCardStyles);
+  }
+
+  // Add a header-style logo and wordmark before Home in the bottom navigation.
+  const bottomNav = document.querySelector('.bottom-nav');
+  if (bottomNav && !bottomNav.querySelector('.bottom-nav-brand')) {
+    const logoLink = document.createElement('a');
+    logoLink.className = 'bottom-nav-brand';
+    logoLink.href = 'index.html';
+    logoLink.setAttribute('aria-label', 'Artisans of New England home');
+
+    const logo = document.createElement('img');
+    logo.src = 'LOGO.png';
+    logo.alt = '';
+    logoLink.appendChild(logo);
+
+    const wordmark = document.createElement('span');
+    wordmark.className = 'bottom-nav-wordmark';
+    wordmark.setAttribute('aria-hidden', 'true');
+    wordmark.innerHTML = 'ARTISANS OF<br><strong>NEW ENGLAND</strong>';
+    logoLink.appendChild(wordmark);
+
+    bottomNav.insertBefore(logoLink, bottomNav.firstChild);
+  }
+
+  // Professional mobile bottom navigation sizing and border.
+  const bottomNavStyles = document.createElement('link');
+  bottomNavStyles.rel = 'stylesheet';
+  bottomNavStyles.href = 'bottom-navigation.css';
+  document.head.appendChild(bottomNavStyles);
+
   const pageName = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.bottom-nav a[data-page]').forEach((link) => {
     if (link.dataset.page === pageName) {
