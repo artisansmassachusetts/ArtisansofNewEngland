@@ -1,0 +1,35 @@
+/* Give the four Google Forms cards a single desktop row and make their links stand out. */
+.get-involved .card-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.get-involved .path-card[href^="https://docs.google.com/"] .card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid var(--rust);
+  border-radius: 2px;
+  background: var(--rust);
+  color: var(--paper);
+  transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+
+.get-involved .path-card[href^="https://docs.google.com/"]:hover .card-link,
+.get-involved .path-card[href^="https://docs.google.com/"]:focus-visible .card-link {
+  border-color: var(--green-deep);
+  background: var(--green-deep);
+  color: var(--paper);
+}
+
+@media (max-width: 1000px) {
+  .get-involved .card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .get-involved .card-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -39,6 +39,14 @@
   imageStyles.href = 'repository-images.css';
   document.head.appendChild(imageStyles);
 
+  // Style the Google Forms cards on the home page.
+  if (document.querySelector('.get-involved .card-grid')) {
+    const involvedCardStyles = document.createElement('link');
+    involvedCardStyles.rel = 'stylesheet';
+    involvedCardStyles.href = 'involved-cards.css';
+    document.head.appendChild(involvedCardStyles);
+  }
+
   // Professional mobile bottom navigation sizing and border.
   const bottomNavStyles = document.createElement('link');
   bottomNavStyles.rel = 'stylesheet';
