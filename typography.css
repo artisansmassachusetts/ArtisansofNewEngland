@@ -1,0 +1,80 @@
+/* Global typography consistency across every page. */
+:root {
+  --serif: "Playfair Display", Georgia, serif;
+  --sans: "DM Sans", Arial, sans-serif;
+}
+
+html,
+body,
+button,
+input,
+select,
+textarea {
+  font-family: var(--sans);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote,
+.signature,
+.drop-cap,
+.resource-index,
+.skill-symbol,
+.note-icon,
+.quote-mark,
+.brand,
+.brand-mark {
+  font-family: var(--serif);
+}
+
+.eyebrow,
+.button,
+.header-link,
+.card-number,
+.card-link,
+.text-link,
+.bottom-nav,
+.bottom-nav a,
+.section-heading > p,
+.skill-card .eyebrow,
+.resource-item .eyebrow,
+.values-grid article > span {
+  font-family: var(--sans);
+}
+
+/* Keep display copy on the same two-font system. */
+.hero h1,
+.page-hero h1,
+.contact-hero h1,
+.section h2,
+.image-banner h2,
+.quote-banner blockquote,
+.skill-card h3,
+.resource-item h3,
+.path-card h3,
+.founder-copy h2,
+.contact-aside h2,
+.contact-bottom h2 {
+  font-family: var(--serif);
+}
+
+.hero-intro,
+.page-hero-copy > p,
+.hero-copy > p,
+.section-heading > p,
+.intro-copy,
+.skill-card > p,
+.resource-item > p,
+.path-card > p,
+.feature-copy,
+.founder-copy,
+.contact-aside,
+.contact-form,
+.image-banner p,
+.quote-banner p {
+  font-family: var(--sans);
+}
