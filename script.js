@@ -47,26 +47,20 @@
     document.head.appendChild(involvedCardStyles);
   }
 
-  // Add a header-style logo and wordmark before Home in the bottom navigation.
+  // Use the circular logo as the Home item in the bottom navigation.
   const bottomNav = document.querySelector('.bottom-nav');
-  if (bottomNav && !bottomNav.querySelector('.bottom-nav-brand')) {
-    const logoLink = document.createElement('a');
-    logoLink.className = 'bottom-nav-brand';
-    logoLink.href = 'index.html';
-    logoLink.setAttribute('aria-label', 'Artisans of New England home');
-
-    const logo = document.createElement('img');
-    logo.src = 'LOGO.png';
-    logo.alt = '';
-    logoLink.appendChild(logo);
-
-    const wordmark = document.createElement('span');
-    wordmark.className = 'bottom-nav-wordmark';
-    wordmark.setAttribute('aria-hidden', 'true');
-    wordmark.innerHTML = 'ARTISANS OF<br><strong>NEW ENGLAND</strong>';
-    logoLink.appendChild(wordmark);
-
-    bottomNav.insertBefore(logoLink, bottomNav.firstChild);
+  if (bottomNav) {
+    const homeLink = bottomNav.querySelector('a[data-page="index.html"]');
+    const brandLink = bottomNav.querySelector('.bottom-nav-brand');
+    if (homeLink && brandLink) {
+      const logo = brandLink.querySelector('img');
+      if (logo) {
+        homeLink.replaceChildren(logo);
+        homeLink.classList.add('bottom-nav-home');
+        homeLink.setAttribute('aria-label', 'Home');
+        brandLink.remove();
+      }
+    }
   }
 
   // Professional mobile bottom navigation sizing and border.
