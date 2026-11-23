@@ -2,6 +2,12 @@
 (() => {
   'use strict';
 
+  // Apply self-hosted repository photos and artwork across all pages.
+  const imageStyles = document.createElement('link');
+  imageStyles.rel = 'stylesheet';
+  imageStyles.href = 'repository-images.css';
+  document.head.appendChild(imageStyles);
+
   const pageName = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.bottom-nav a[data-page]').forEach((link) => {
     if (link.dataset.page === pageName) {
