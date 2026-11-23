@@ -72,6 +72,20 @@ body {
   outline-offset: 2px;
 }
 
+@media (min-width: 801px) {
+  .bottom-nav {
+    left: 50%;
+    right: auto;
+    width: min(760px, calc(100vw - 3rem));
+    transform: translateX(-50%);
+    bottom: 1.25rem;
+  }
+
+  .bottom-nav a small {
+    font-size: 0.75rem;
+  }
+}
+
 @media (max-width: 800px) {
   :root {
     --page-pad: 1.35rem;
@@ -101,6 +115,8 @@ body {
   .bottom-nav {
     left: 0.75rem;
     right: 0.75rem;
+    width: auto;
+    transform: none;
   }
 }
 
