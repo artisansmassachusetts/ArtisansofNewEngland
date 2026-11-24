@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4efe4">
+  <title>Find a Learning Match — Artisans of New England</title>
+  <meta name="description" content="Tell us what you want to learn or teach, and we’ll help connect you with an artisan, mentor, or learner who shares your interests.">
+  <link rel="canonical" href="https://artisansofnewengland.org/pairing.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Artisans of New England">
+  <meta property="og:title" content="Find a Learning Match — Artisans of New England">
+  <meta property="og:description" content="Connect with a mentor or learner through shared craft interests and learning goals.">
+  <meta property="og:url" content="https://artisansofnewengland.org/pairing.html">
+  <meta property="og:image" content="https://artisansofnewengland.org/LOGO.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="typography.css">
+  <link rel="stylesheet" href="pairing.css">
+  <script src="script.js" defer></script>
+  <script src="pairing.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Artisans of New England home"><span class="brand-mark" aria-hidden="true">ANE</span><span>Artisans of<br><b>New England</b></span></a>
+    <a class="header-link" href="mentoring.html">Explore mentoring <span aria-hidden="true">↗</span></a>
+  </header>
+  <main id="main">
+    <section class="pairing-hero">
+      <p class="eyebrow">A shared interest can open a door</p>
+      <h1>Find your<br><em>learning match.</em></h1>
+      <p>Looking for someone to teach you—or ready to pass a skill along? Tell us what matters to you. We’ll use your interests and goals to help start a useful introduction.</p>
+      <a class="button button-dark" href="#match-form">Tell us what you’re looking for <span aria-hidden="true">↓</span></a>
+    </section>
+    <section class="section pairing-how" aria-labelledby="how-heading">
+      <div><p class="eyebrow">Simple, human, interest-led</p><h2 id="how-heading">Start with what you want to learn.</h2></div>
+      <ol class="pairing-steps">
+        <li><span>01</span><div><h3>Share your interests</h3><p>Choose your craft, role, goals, and the kind of learning that works for you.</p></div></li>
+        <li><span>02</span><div><h3>We’ll look for common ground</h3><p>We use the details in your note to help identify a mentor or learner with shared interests.</p></div></li>
+        <li><span>03</span><div><h3>Make an introduction</h3><p>We’ll follow up by email. You decide whether and how to continue the conversation.</p></div></li>
+      </ol>
+    </section>
+    <section class="section pairing-form-section" id="match-form" aria-labelledby="form-heading">
+      <div class="pairing-form-intro"><p class="eyebrow">Your next step starts here</p><h2 id="form-heading">Tell us about your match.</h2><p>This form prepares an email to our team with your preferences. It does not create an account or publish your information.</p></div>
+      <form class="pairing-form" data-pairing-form data-email="artisans.massachusetts@gmail.com">
+        <div class="pairing-field"><label for="pair-name">Your name</label><input id="pair-name" name="name" autocomplete="name" required></div>
+        <div class="pairing-field"><label for="pair-email">Email address</label><input id="pair-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="pairing-field"><label for="pair-role">I’m interested in</label><select id="pair-role" name="role" required><option value="" disabled selected>Choose one</option><option>Finding a mentor or apprenticeship</option><option>Mentoring or teaching a skill</option><option>Either learning or teaching</option></select></div>
+        <div class="pairing-field"><label for="pair-interest">Craft or trade of interest</label><select id="pair-interest" name="interest" required><option value="" disabled selected>Choose an area</option><option>Woodworking and furniture</option><option>Leatherworking and saddlery</option><option>Metalworking and blacksmithing</option><option>Textiles, sewing, and fashion</option><option>Glass, ceramics, and pottery</option><option>Building trades and restoration</option><option>Food, farming, and horticulture</option><option>Another craft or trade</option></select></div>
+        <div class="pairing-field"><label for="pair-region">Where in New England?</label><select id="pair-region" name="region" required><option value="" disabled selected>Choose a state or area</option><option>Connecticut</option><option>Maine</option><option>Massachusetts</option><option>New Hampshire</option><option>Rhode Island</option><option>Vermont</option><option>Open to virtual connections</option></select></div>
+        <div class="pairing-field"><label for="pair-format">Preferred way to learn or connect</label><select id="pair-format" name="format" required><option value="" disabled selected>Choose a format</option><option>Hands-on, in person</option><option>One-to-one mentoring</option><option>Short workshop or class</option><option>Online or flexible</option><option>Open to options</option></select></div>
+        <div class="pairing-field pairing-field-wide"><label for="pair-goals">What would you like to learn, teach, or find in a match?</label><textarea id="pair-goals" name="goals" rows="5" placeholder="Share your experience, goals, schedule, or anything else that could help us make a thoughtful introduction." required></textarea></div>
+        <div class="pairing-field pairing-field-wide pairing-consent"><label><input type="checkbox" name="consent" required> I agree that the information in my email can be used by Artisans of New England to respond to this matching request.</label></div>
+        <div class="pairing-field-wide pairing-submit"><button class="button button-dark" type="submit">Prepare my request <span aria-hidden="true">→</span></button><p class="pairing-status" data-pairing-status role="status" aria-live="polite"></p><p class="pairing-note">Your email app will open with a draft for you to review and send. Matching is arranged by our team; this site does not automatically pair users.</p></div>
+      </form>
+    </section>
+  </main>
+  <footer class="site-footer"><a class="brand brand-footer" href="index.html" aria-label="Artisans of New England home"><span class="brand-mark" aria-hidden="true">ANE</span><span>Artisans of<br><b>New England</b></span></a><p>A community for the people who make things—and make things happen.</p><small>© <span data-year></span> Artisans of New England</small></footer>
+</body>
+</html>
